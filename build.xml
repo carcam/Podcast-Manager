@@ -2,12 +2,12 @@
 <project name="podcast-manager" default="dev_head" basedir=".">
 	<!-- Project properties -->
 	<property name="repo.dir" value="." />
-	<property name="version" value="2.2.0" />
+	<property name="version" value="2.2.1alpha1" />
 	<tstamp>
-		<format property="build.date" pattern="yyyy-MM-dd" />
+		<format property="build.date" pattern="yyyy-MM-dd" locale="en_GB" timezone="Europe/Berlin"/>
 	</tstamp>
 
-	<macrodef name="git">
+	<!-- <macrodef name="git">
 		<attribute name="command" />
 		<attribute name="dir" default="" />
 		<element name="args" optional="true" />
@@ -17,7 +17,7 @@
 				<args/>
 			</exec>
 		</sequential>
-	</macrodef>
+	</macrodef> -->
 
 	<!-- Build a package for testing -->
 	<target name="dev_head" description="Builds test packages based on the development head" depends="rebuild-packages,copy-files,zip-packages">
@@ -92,16 +92,40 @@
 			<copy todir="packaging/staging/com_podcastmanager">
 				<fileset dir="com_podcastmanager" />
 			</copy>
-			<replace file="packaging/staging/com_podcastmanager/podcastmanager.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/com_podcastmanager/podcastmanager.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/com_podcastmanager/podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/com_podcastmanager/podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create com_podcastmedia package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/com_podcastmedia">
 				<fileset dir="com_podcastmedia" />
 			</copy>
-			<replace file="packaging/staging/com_podcastmedia/podcastmedia.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/com_podcastmedia/podcastmedia.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/com_podcastmedia/podcastmedia.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/com_podcastmedia/podcastmedia.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create lib_getid3 package" />
 			<mkdir dir="packaging/staging" />
@@ -114,61 +138,157 @@
 			<copy todir="packaging/staging/mod_podcastmanager">
 				<fileset dir="mod_podcastmanager" />
 			</copy>
-			<replace file="packaging/staging/mod_podcastmanager/mod_podcastmanager.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/mod_podcastmanager/mod_podcastmanager.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/mod_podcastmanager/mod_podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/mod_podcastmanager/mod_podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create mod_podcastmanagerfeed package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/mod_podcastmanagerfeed">
 				<fileset dir="mod_podcastmanagerfeed" />
 			</copy>
-			<replace file="packaging/staging/mod_podcastmanagerfeed/mod_podcastmanagerfeed.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/mod_podcastmanagerfeed/mod_podcastmanagerfeed.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/mod_podcastmanagerfeed/mod_podcastmanagerfeed.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/mod_podcastmanagerfeed/mod_podcastmanagerfeed.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create plg_content_podcastmanager package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/plg_content_podcastmanager">
 				<fileset dir="plg_content_podcastmanager" />
 			</copy>
-			<replace file="packaging/staging/plg_content_podcastmanager/podcastmanager.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/plg_content_podcastmanager/podcastmanager.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/plg_content_podcastmanager/podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/plg_content_podcastmanager/podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create plg_editors-xtd_podcastmanager package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/plg_editors-xtd_podcastmanager">
 				<fileset dir="plg_editors-xtd_podcastmanager" />
 			</copy>
-			<replace file="packaging/staging/plg_editors-xtd_podcastmanager/podcastmanager.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/plg_editors-xtd_podcastmanager/podcastmanager.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/plg_editors-xtd_podcastmanager/podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/plg_editors-xtd_podcastmanager/podcastmanager.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create plg_finder_podcastmanager_feeds package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/plg_finder_podcastmanager_feeds">
 				<fileset dir="plg_finder_podcastmanager_feeds" />
 			</copy>
-			<replace file="packaging/staging/plg_finder_podcastmanager_feeds/podcastmanager_feeds.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/plg_finder_podcastmanager_feeds/podcastmanager_feeds.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/plg_finder_podcastmanager_feeds/podcastmanager_feeds.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/plg_finder_podcastmanager_feeds/podcastmanager_feeds.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create plg_finder_podcastmanager_podcasts package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/plg_finder_podcastmanager_podcasts">
 				<fileset dir="plg_finder_podcastmanager_podcasts" />
 			</copy>
-			<replace file="packaging/staging/plg_finder_podcastmanager_podcasts/podcastmanager_podcasts.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/staging/plg_finder_podcastmanager_podcasts/podcastmanager_podcasts.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/staging/plg_finder_podcastmanager_podcasts/podcastmanager_podcasts.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/staging/plg_finder_podcastmanager_podcasts/podcastmanager_podcasts.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create plg_podcastmedia_user package" />
 			<mkdir dir="packaging/staging" />
 			<copy todir="packaging/staging/plg_podcastmedia_user">
 				<fileset dir="plg_podcastmedia_user" />
 			</copy>
-		<replace file="packaging/staging/plg_podcastmedia_user/user.xml" token="##DATE##" value="${build.date}" />
-		<replace file="packaging/staging/plg_podcastmedia_user/user.xml" token="##VERSION##" value="${version}" />
+		<reflexive file="packaging/staging/plg_podcastmedia_user/user.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+		<reflexive file="packaging/staging/plg_podcastmedia_user/user.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Copy package manifest" />
 			<copy file="pkg_podcastmanager.xml" tofile="packaging/pkg_podcastmanager.xml" overwrite="true" />
-			<replace file="packaging/pkg_podcastmanager.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/pkg_podcastmanager.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/pkg_podcastmanager.xml" >
+			    <filterchain>
+			      <replacetokens begintoken="##" endtoken="##">
+			        <token key="DATE" value="${build.date}" />
+			      </replacetokens>
+			    </filterchain>
+			</reflexive>
+			<reflexive file="packaging/pkg_podcastmanager.xml" >
+			    <filterchain>
+			      <replacetokens begintoken="##" endtoken="##">
+			        <token key="VERSION" value="${version}" />
+			      </replacetokens>
+			    </filterchain>
+			</reflexive>
 
 		<echo message="Copy package scriptfile" />
 		<copy file="script.php" tofile="packaging/script.php" overwrite="true" />
@@ -182,15 +302,39 @@
 			<copy todir="packaging/strapped">
 				<fileset dir="files_podcastmanager_strapped" />
 			</copy>
-			<replace file="packaging/strapped/podcastmanager_strapped.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/strapped/podcastmanager_strapped.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/strapped/podcastmanager_strapped.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/strapped/podcastmanager_strapped.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 
 		<echo message="Create files_podcastmanager_hathor package" />
 			<copy todir="packaging/files_podcastmanager_hathor">
 				<fileset dir="files_podcastmanager_hathor" />
 			</copy>
-			<replace file="packaging/files_podcastmanager_hathor/podcastmanager_hathor.xml" token="##DATE##" value="${build.date}" />
-			<replace file="packaging/files_podcastmanager_hathor/podcastmanager_hathor.xml" token="##VERSION##" value="${version}" />
+			<reflexive file="packaging/files_podcastmanager_hathor/podcastmanager_hathor.xml" >
+    <filterchain>
+      <replacetokens begintoken="##" endtoken="##">
+        <token key="DATE" value="${build.date}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
+			<reflexive file="packaging/files_podcastmanager_hathor/podcastmanager_hathor.xml">
+			    <filterchain>
+			      <replacetokens begintoken="##" endtoken="##">
+        <token key="VERSION" value="${version}" />
+      </replacetokens>
+    </filterchain>
+</reflexive>
 	</target>
 
 	<!-- ZIP the separate extension packages -->

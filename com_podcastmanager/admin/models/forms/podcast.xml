@@ -31,6 +31,37 @@
 			<option
 				value="0">JNONE</option>
 		</field>
+		<field
+			type="editor"
+			name="itContentEncoded"
+			filter="safehtml"
+			buttons="true"
+			hide="readmore, pagebreak, image"
+			label="COM_PODCASTMANAGER_PODCAST_ITUNES_CONTENT_ENCODED_LABEL"
+			description="COM_PODCASTMANAGER_PODCAST_ITUNES_CONTENT_ENCODED_DESCRIPTION"
+			/>
+		<field
+			name="itunesepisodetype"
+			type="list"
+			default="full"
+			ifilter="string"
+			label="COM_PODCASTMANAGER_PODCAST_EPISODE_TYPE_LABEL"
+			description="COM_PODCASTMANAGER_PODCAST_EPISODE_TYPE_DESCRIPTION"
+			>
+				<option
+					value="full">
+					COM_PODCASTMANAGER_PODCAST_EPISODE_TYPE_OPTION_FULL
+				</option>
+				<option
+					value="trailer">
+					COM_PODCASTMANAGER_PODCAST_EPISODE_TYPE_OPTION_TRAILER
+				</option>
+				<option
+					value="bonus">
+					COM_PODCASTMANAGER_PODCAST_EPISODE_TYPE_OPTION_BONUS
+				</option>
+
+		</field>
 		<field name="created" type="calendar" label="COM_PODCASTMANAGER_FIELD_CREATED_LABEL"
 			description="COM_PODCASTMANAGER_FIELD_CREATED_DESCRIPTION" class="inputbox" size="22"
 			format="%Y-%m-%d %H:%M:%S" filter="user_utc" />

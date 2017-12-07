@@ -163,7 +163,7 @@ class PodcastManagerViewFeed extends JViewLegacy
 		{
 			$xw->startElement('itunes:image');
 
-			if (!preg_match('/^http/', $imageURL))
+			if (!preg_match('/^https/', $imageURL))
 			{
 				$imageURL = JUri::root() . $imageURL;
 			}
@@ -280,6 +280,7 @@ class PodcastManagerViewFeed extends JViewLegacy
 				$xw->writeElement('itunes:author', $item->itAuthor);
 				$xw->writeElement('itunes:subtitle', $item->itSubtitle);
 				$xw->writeElement('itunes:summary', $item->itSummary);
+				$xw->writeElement('content:encoded', $item->itContentEncoded);
 				$xw->writeElement('description', $item->itSummary);
 
 				$imageURL = $item->itImage;

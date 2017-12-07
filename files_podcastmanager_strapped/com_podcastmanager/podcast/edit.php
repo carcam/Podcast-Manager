@@ -85,6 +85,14 @@ JHtml::_('formbehavior.chosen', 'select');
 						</div>
 						<div class="control-group">
 							<div class="control-label">
+								<?php echo $this->form->getLabel('itContentEncoded'); ?>
+							</div>
+							<div class="controls">
+								<?php echo $this->form->getInput('itContentEncoded'); ?>
+							</div>
+						</div>
+						<div class="control-group">
+							<div class="control-label">
 								<?php echo $this->form->getLabel('itImage'); ?>
 							</div>
 							<div class="controls">

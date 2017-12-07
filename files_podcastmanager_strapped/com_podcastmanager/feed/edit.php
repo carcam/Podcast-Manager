@@ -180,6 +180,14 @@ JHtml::_('formbehavior.chosen', 'select');
 					</div>
 					<div class="control-group">
 						<div class="control-label">
+							<?php echo $this->form->getLabel('itunestype'); ?>
+						</div>
+						<div class="controls">
+							<?php echo $this->form->getInput('itunestype'); ?>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="control-label">
 							<?php echo $this->form->getLabel('explicit'); ?>
 						</div>
 						<div class="controls">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="2.5" method="upgrade">
+<extension type="component" version="3.8" method="upgrade">
 	<name>com_podcastmanager</name>
 	<creationDate>##DATE##</creationDate>
-	<author>Michael Babker</author>
-	<copyright>(C) 2011-2015 Michael Babker</copyright>
-	<authorEmail>mbabker@flbab.com</authorEmail>
-	<authorUrl>https://www.babdev.com</authorUrl>
+	<author>Michael Babker and Carlos Cámara</author>
+	<copyright>(C) 2011-2015 Michael Babker and Carlos Cámara</copyright>
+	<authorEmail>carlos@hepta.es</authorEmail>
+	<authorUrl>https://extensions.hepta.es</authorUrl>
 	<version>##VERSION##</version>
 	<license>GNU/GPL Version 2 or later</license>
 	<description>COM_PODCASTMANAGER_XML_DESCRIPTION</description>

@@ -129,6 +129,9 @@ JHtml::_('behavior.keepalive');
 
 					<li><?php echo $this->form->getLabel('explicit'); ?>
 					<?php echo $this->form->getInput('explicit'); ?></li>
+					
+					<li><?php echo $this->form->getLabel('itunestype'); ?>
+					<?php echo $this->form->getInput('itunestype'); ?></li>
 
 					<li><?php echo $this->form->getLabel('category1'); ?>
 					<?php echo $this->form->getInput('category1'); ?></li>

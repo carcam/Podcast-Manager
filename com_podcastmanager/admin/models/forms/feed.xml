@@ -80,6 +80,24 @@
 			<option
 				value="2">COM_PODCASTMANAGER_FIELD_ITEXPLICIT_OPTION_CLEAN</option>
 		</field>
+		<field
+			name="itunestype"
+			type="radio"
+			default="episodic"
+			filter="STRING"
+			class="btn-group"
+			label="COM_PODCASTMANAGER_FIELD_ITTYPE_LABEL"
+			description="COM_PODCASTMANAGER_FIELD_ITTYPE_DESCRIPTION"
+			>
+			<option
+				value="episodic">
+				COM_PODCASTMANAGER_FIELD_ITTYPE_OPTION_EPISODIC
+			</option>
+			<option
+				value="serial">
+				COM_PODCASTMANAGER_FIELD_ITTYPE_OPTION_SERIAL
+			</option>
+		</field>
 		<field name="created" type="calendar" label="COM_PODCASTMANAGER_FIELD_CREATED_LABEL"
 			description="COM_PODCASTMANAGER_FIELD_CREATED_DESCRIPTION" class="inputbox" size="22"
 			format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
