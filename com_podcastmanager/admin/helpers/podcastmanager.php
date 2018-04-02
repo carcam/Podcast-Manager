@@ -337,10 +337,10 @@ abstract class PodcastManagerHelper
 		switch ($tracking)
 		{
 			case 'blubrry':
-				return 'http://media.blubrry.com/' . $trackUser . '/' . $replacement;
+				return 'https://media.blubrry.com/' . $trackUser . '/' . $replacement;
 
 			case 'podtrac':
-				return 'http://www.podtrac.com/pts/redirect.mp3/' . $replacement;
+				return 'https://www.podtrac.com/pts/redirect.mp3/' . $replacement;
 
 			default:
 				return $url;

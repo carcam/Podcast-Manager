@@ -280,7 +280,9 @@ class PodcastManagerViewFeed extends JViewLegacy
 				$xw->writeElement('itunes:author', $item->itAuthor);
 				$xw->writeElement('itunes:subtitle', $item->itSubtitle);
 				$xw->writeElement('itunes:summary', $item->itSummary);
-				$xw->writeElement('content:encoded', $item->itContentEncoded);
+				$xw->startElement('content:encoded');
+				$xw->writeCData($item->itContentEncoded);
+				$xw->endElement();
 				$xw->writeElement('description', $item->itSummary);
 
 				$imageURL = $item->itImage;
