@@ -91,6 +91,7 @@ class PodcastManagerViewFeed extends JViewLegacy
 
 		$xw->startElement('rss');
 		$xw->writeAttribute('xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
+		$xw->writeAttribute('xmlns:content', 'http://purl.org/rss/1.0/modules/content/');
 		$xw->writeAttribute('xmlns:atom', 'http://www.w3.org/2005/Atom');
 		$xw->writeAttribute('version', '2.0');
 
@@ -225,8 +226,8 @@ class PodcastManagerViewFeed extends JViewLegacy
 	/**
 	 * Function to generate the feed items
 	 *
-	 * @param   XMLWriter  &$xw    XMLWriter object containing generated feed output
-	 * @param   object     $items  An object containing the feed record
+	 * @param   XMLWriter  $xw		XMLWriter object containing generated feed output
+	 * @param   object     $items	An object containing the feed record
 	 *
 	 * @return  void
 	 *
@@ -280,10 +281,10 @@ class PodcastManagerViewFeed extends JViewLegacy
 				$xw->writeElement('itunes:author', $item->itAuthor);
 				$xw->writeElement('itunes:subtitle', $item->itSubtitle);
 				$xw->writeElement('itunes:summary', $item->itSummary);
+				$xw->writeElement('description', $item->itSummary);
 				$xw->startElement('content:encoded');
 				$xw->writeCData($item->itContentEncoded);
 				$xw->endElement();
-				$xw->writeElement('description', $item->itSummary);
 
 				$imageURL = $item->itImage;
 
